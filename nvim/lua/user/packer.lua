@@ -25,7 +25,8 @@ return require('packer').startup(function(use)
 
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
+  use 'junegunn/fzf.vim'
+  use 'junegunn/fzf'
 
   use 'arcticicestudio/nord-vim'
   use 'ryanoasis/vim-devicons'
@@ -38,8 +39,23 @@ return require('packer').startup(function(use)
   use 'tomlion/vim-solidity'
   use 'dense-analysis/ale'
   use { "catppuccin/nvim", as = "catppuccin" }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
+  use {
+    "zbirenbaum/copilot.lua",
+    event = "VimEnter",
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup()
+      end, 100)
+    end,
+  }
 
-  use 'github/copilot.vim'
   use 'NvChad/nvim-colorizer.lua'
 
 end)

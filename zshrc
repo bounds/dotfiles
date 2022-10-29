@@ -1,3 +1,4 @@
+
 export ZSH=$HOME/.oh-my-zsh
 export GOPATH="$HOME/go"
 export HOMEBREW_PATH=$(brew --prefix)
@@ -41,3 +42,5 @@ alias source_zshrc='source ~/.zshrc'
 alias find_text='grep -r -n --exclude-dir={node_modules,build,out,cache,artifacts,dist,.next}'
 
 export PATH="$PATH:/Users/dave/.huff/bin"
+. $(brew --prefix asdf)/asdf.sh
+. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
